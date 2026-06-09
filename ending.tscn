@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://s5aui8a18sa4"]
+
+[ext_resource type="Script" uid="uid://ci207oc2upa7b" path="res://ending.gd" id="1_k7rdy"]
+[ext_resource type="Texture2D" uid="uid://bicl8phlo0am6" path="res://iloveimg-resized/대학 건물의 픽셀 아트 풍경.png" id="2_sy8ce"]
+[ext_resource type="Texture2D" uid="uid://bfaj5mlg274kx" path="res://iloveimg-resized/juimgone.png" id="3_uvbhr"]
+[ext_resource type="Texture2D" uid="uid://be0knpl4rjikv" path="res://2d겜프 에셋/박물관장.png" id="4_m7rhh"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="5_e2dv3"]
+
+[node name="ending" type="Node2D" unique_id=1136512373]
+script = ExtResource("1_k7rdy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394167594]
+z_index = -2
+texture = ExtResource("2_sy8ce")
+
+[node name="RightCharacter" type="Sprite2D" parent="." unique_id=1503195872]
+position = Vector2(301, 289.99997)
+scale = Vector2(0.48013702, 0.48434535)
+texture = ExtResource("3_uvbhr")
+
+[node name="LeftCharacter" type="Sprite2D" parent="." unique_id=1488818360]
+position = Vector2(-282.00003, 302.25)
+scale = Vector2(0.5923077, 0.43708053)
+texture = ExtResource("4_m7rhh")
+
+[node name="LeftBubble" type="Sprite2D" parent="." unique_id=249774286]
+visible = false
+position = Vector2(-60.25, 117.25)
+scale = Vector2(2, 2)
+texture = ExtResource("5_e2dv3")
+
+[node name="RightBubble" type="Sprite2D" parent="." unique_id=185855101]
+visible = false
+position = Vector2(82.25, 112.25001)
+scale = Vector2(2, 2)
+texture = ExtResource("5_e2dv3")
+flip_h = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1400870896]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=365659176]
+
+[node name="LeftLabel" type="Label" parent="." unique_id=74373802]
+offset_left = -137.0
+offset_top = 62.0
+offset_right = -97.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="RightLabel" type="Label" parent="." unique_id=1001239742]
+offset_left = -3.0
+offset_top = 47.0
+offset_right = 37.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)

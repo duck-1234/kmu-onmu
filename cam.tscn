@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://b1euato3dwno7"]
+
+[ext_resource type="Texture2D" uid="uid://dj475t0tq6cqo" path="res://카메라/ChatGPT Image 2026년 6월 3일 오후 07_51_33 (1).png" id="1_tgj6o"]
+[ext_resource type="PackedScene" uid="uid://d33ly1r77fkbs" path="res://bird.tscn" id="2_h7suv"]
+[ext_resource type="Texture2D" uid="uid://gkqfg0626v8u" path="res://카메라/카메라.png" id="3_i1t8x"]
+[ext_resource type="Script" uid="uid://c3xovvoa0gqgd" path="res://camera.gd" id="3_p5hl4"]
+[ext_resource type="Texture2D" uid="uid://bvl1urkj2itnm" path="res://카메라/vmffptl.png" id="5_jmu5k"]
+[ext_resource type="Texture2D" uid="uid://baftotd3gqrnw" path="res://카메라/스크린샷 2026-06-04 000248.png" id="6_jmu5k"]
+[ext_resource type="Texture2D" uid="uid://dkw01kwkr5dtc" path="res://카메라/스크린샷 2026-06-04 000346.png" id="7_4n50j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5hl4"]
+size = Vector2(277.1762, 202.06358)
+
+[node name="cam" type="Node2D" unique_id=1140112003]
+script = ExtResource("3_p5hl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1111262335]
+position = Vector2(3, -1)
+texture = ExtResource("1_tgj6o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=310564228]
+
+[node name="Bird" type="Node2D" parent="." unique_id=1462675117]
+
+[node name="bird" parent="Bird" unique_id=1324355959 instance=ExtResource("2_h7suv")]
+position = Vector2(3, -8)
+
+[node name="bird2" parent="Bird" unique_id=644031300 instance=ExtResource("2_h7suv")]
+
+[node name="CameraFrame" type="Area2D" parent="." unique_id=2063742687]
+position = Vector2(2, -3)
+scale = Vector2(2.669782, 2.1082473)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CameraFrame" unique_id=1822201236]
+texture = ExtResource("3_i1t8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFrame" unique_id=439832403]
+position = Vector2(-4.1201897, 47.432766)
+shape = SubResource("RectangleShape2D_p5hl4")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=279966844]
+
+[node name="GameTimer" type="Timer" parent="." unique_id=1888188798]
+autostart = true
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=626299633]
+visible = false
+position = Vector2(-53.00009, 0.50001526)
+scale = Vector2(4.367542, 2.164286)
+texture = ExtResource("5_jmu5k")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1016586465]
+
+[node name="TimeLabel" type="Label" parent="UI" unique_id=2075973210]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "타임 "
+
+[node name="SuccessLabel" type="Label" parent="UI" unique_id=1228104320]
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 39.0
+offset_bottom = 43.0
+text = "성공 "
+
+[node name="FailLabel" type="Label" parent="UI" unique_id=500076377]
+offset_left = -1.0
+offset_top = 65.0
+offset_right = 39.0
+offset_bottom = 88.0
+text = "실패 "
+
+[node name="PartialLabel" type="Label" parent="UI" unique_id=1841510264]
+offset_top = 42.0
+offset_right = 40.0
+offset_bottom = 65.0
+text = "잘림 "
+
+[node name="ResultPanel" type="Panel" parent="." unique_id=1618695632]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -886.0
+offset_top = -466.0
+offset_right = 872.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SuccessLabel" type="Label" parent="ResultPanel" unique_id=1992653540]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 38.0
+offset_right = 241.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 40
+text = "성공 "
+
+[node name="FailLabel" type="Label" parent="ResultPanel" unique_id=1157368082]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 153.0
+offset_right = 242.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 40
+text = "실패 "
+
+[node name="TitleLabel" type="Label" parent="ResultPanel" unique_id=1127809966]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 30.0
+offset_right = 1359.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 60
+text = "전시명칭-사진기와 슬라이드 필름/
+계명의 교조 후투티 
+국적/시대	-한국 - 근현대 "
+
+[node name="PartialLabel" type="Label" parent="ResultPanel" unique_id=1677304]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 101.0
+offset_right = 243.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 40
+text = "잘림 "
+
+[node name="Sprite2D" type="Sprite2D" parent="ResultPanel" unique_id=888047360]
+
+[node name="스크린샷20260604000248" type="Sprite2D" parent="ResultPanel" unique_id=1176278304]
+position = Vector2(1170, 443)
+scale = Vector2(0.78541076, 0.8525281)
+texture = ExtResource("6_jmu5k")
+
+[node name="스크린샷20260604000346" type="Sprite2D" parent="ResultPanel" unique_id=400397055]
+position = Vector2(1447, 449)
+scale = Vector2(0.49816176, 0.41712892)
+texture = ExtResource("7_4n50j")
+
+[node name="Button" type="Button" parent="ResultPanel" unique_id=447113280]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 606.0
+offset_right = 1223.0
+offset_bottom = 755.0
+theme_override_font_sizes/font_size = 100
+text = "확인 "
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="ResultPanel/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bl0j3x346tf7f"]
+
+[ext_resource type="Script" uid="uid://dy0vwuiuvexm" path="res://djgsy.gd" id="1_wqhyd"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="2_w0c8h"]
+[ext_resource type="Texture2D" uid="uid://c1106jt648h2x" path="res://도자기모둠/도자기01.png" id="3_vactl"]
+[ext_resource type="Texture2D" uid="uid://ct2vs0uw2ec1t" path="res://도자기모둠/도자기02.png" id="4_3m0gq"]
+[ext_resource type="Texture2D" uid="uid://b517inxp7iwmw" path="res://도자기모둠/도자기03.png" id="5_p7tdx"]
+[ext_resource type="Texture2D" uid="uid://cxft3fida55y1" path="res://도자기모둠/도자기04.png" id="6_l7ux0"]
+[ext_resource type="Texture2D" uid="uid://e3k4moxlf7ua" path="res://도자기모둠/도자기05.png" id="7_ntuh4"]
+[ext_resource type="Texture2D" uid="uid://dirnfkljc6my8" path="res://도자기모둠/도자기06.png" id="8_2dgy7"]
+[ext_resource type="Texture2D" uid="uid://quwwc6gdc3ex" path="res://도자기모둠/도자기07.png" id="9_nq3f4"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="10_qa1ll"]
+
+[node name="djgsy" type="Node2D" unique_id=482838289]
+script = ExtResource("1_wqhyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=584360525]
+texture = ExtResource("2_w0c8h")
+
+[node name="01" type="Sprite2D" parent="." unique_id=16992018]
+position = Vector2(-133, 176.99998)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("3_vactl")
+
+[node name="02" type="Sprite2D" parent="." unique_id=1637998501]
+position = Vector2(522, 107.00002)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("4_3m0gq")
+
+[node name="03" type="Sprite2D" parent="." unique_id=1801600866]
+position = Vector2(-728, 87.00002)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("5_p7tdx")
+
+[node name="04" type="Sprite2D" parent="." unique_id=1525747098]
+position = Vector2(-136, -136.99995)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("6_l7ux0")
+
+[node name="05" type="Sprite2D" parent="." unique_id=1808890383]
+position = Vector2(219, 237.00002)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("7_ntuh4")
+
+[node name="06" type="Sprite2D" parent="." unique_id=1493240439]
+position = Vector2(-485, 205.00002)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("8_2dgy7")
+
+[node name="07" type="Sprite2D" parent="." unique_id=1454449728]
+position = Vector2(-452, -123.999954)
+scale = Vector2(4.7382956, 4.8213406)
+texture = ExtResource("9_nq3f4")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=999973567]
+position = Vector2(279.125, -195)
+scale = Vector2(3.3150403, 1.668421)
+texture = ExtResource("10_qa1ll")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1444237619]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=1160120873]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=312993439]
+offset_left = 132.0
+offset_top = -229.0
+offset_right = 352.0
+offset_bottom = -165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

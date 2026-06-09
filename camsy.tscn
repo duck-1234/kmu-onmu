@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c6xwhixq8vfu4"]
+
+[ext_resource type="Script" uid="uid://dcxk4fm6m0765" path="res://camsy.gd" id="1_0h0h8"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="2_ioyj5"]
+[ext_resource type="Texture2D" uid="uid://baftotd3gqrnw" path="res://카메라/스크린샷 2026-06-04 000248.png" id="3_0h0h8"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="4_f51ig"]
+
+[node name="camsy" type="Node2D" unique_id=2010090511]
+script = ExtResource("1_0h0h8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434697261]
+texture = ExtResource("2_ioyj5")
+
+[node name="cam" type="Sprite2D" parent="." unique_id=417225989]
+position = Vector2(-267.96335, 112.42407)
+scale = Vector2(1.5772156, 1.3704412)
+texture = ExtResource("3_0h0h8")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=321230512]
+position = Vector2(398.00003, -147)
+scale = Vector2(5.5121946, 4.3105264)
+texture = ExtResource("4_f51ig")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1437785630]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=1581541874]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=361627679]
+offset_left = 181.0
+offset_top = -264.0
+offset_right = 685.25
+offset_bottom = -126.75
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

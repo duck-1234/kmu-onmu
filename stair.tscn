@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dnbou2heciw0v"]
+
+[ext_resource type="Texture2D" uid="uid://b41gafh7nfkkp" path="res://2d겜프 에셋/계단.png" id="1_s3nut"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="2_qa4gl"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="3_qa4gl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okenp"]
+size = Vector2(30.875, 140.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hh34"]
+size = Vector2(725, 54)
+
+[node name="stair" type="Node2D" unique_id=1322572452]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=790780111]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2128464977]
+texture = ExtResource("1_s3nut")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=262612318]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=486724495]
+polygon = PackedVector2Array(-866, 414, 849, 425, 855, 217, 787, 208, 639, 213, 191, 306, 203, 402, -382, 407, -316, 281, -708, 199, -868, 201, -866, 386)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=170642068]
+polygon = PackedVector2Array(-859, 39, -864, 204, -842, 205, -837, 37, -691, 32, -176, 148, 112, 145, 606, 39, 823, 39, 828, 209, 861, 226, 860, 35, 861, -461, -861, -455)
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("2_qa4gl")]
+position = Vector2(-59, 227)
+
+[node name="map1" type="Area2D" parent="." unique_id=223109939 groups=["door"]]
+script = ExtResource("3_qa4gl")
+target_scene = "res://map1.tscn"
+
+[node name="map1CollisionShape2D2" type="CollisionShape2D" parent="map1" unique_id=1315357257]
+position = Vector2(-816.4375, 119.75)
+shape = SubResource("RectangleShape2D_okenp")
+debug_color = Color(0.8784314, 0, 1, 0.93333334)
+
+[node name="stairtomain" type="Area2D" parent="." unique_id=1961422787 groups=["door"]]
+script = ExtResource("3_qa4gl")
+target_scene = "res://mainmap.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stairtomain" unique_id=402249732]
+position = Vector2(-89.5, 379)
+shape = SubResource("RectangleShape2D_7hh34")
+
+[node name="map2" type="Area2D" parent="." unique_id=1746684136 groups=["door"]]
+script = ExtResource("3_qa4gl")
+target_scene = "res://map2.tscn"
+
+[node name="map2CollisionShape2D2" type="CollisionShape2D" parent="map2" unique_id=117614657]
+position = Vector2(759, 119.75)
+shape = SubResource("RectangleShape2D_okenp")
+debug_color = Color(0.8784314, 0, 1, 0.93333334)
+
+[connection signal="body_entered" from="map1" to="map1" method="_on_body_entered"]
+[connection signal="body_exited" from="map1" to="map1" method="_on_body_exited"]
+[connection signal="body_entered" from="stairtomain" to="stairtomain" method="_on_body_entered"]
+[connection signal="body_exited" from="stairtomain" to="stairtomain" method="_on_body_exited"]
+[connection signal="body_entered" from="map2" to="map2" method="_on_body_entered"]
+[connection signal="body_exited" from="map2" to="map2" method="_on_body_exited"]

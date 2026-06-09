@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bkixd6b04hh8k"]
+
+[ext_resource type="Script" uid="uid://bisu26hcqg4q6" path="res://hututisy.gd" id="1_61t8s"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="1_r4t7l"]
+[ext_resource type="Texture2D" uid="uid://dvr18a5ron35y" path="res://iloveimg-resized/image-removebg-preview (4).png" id="2_61t8s"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="3_sivno"]
+
+[node name="hututisy" type="Node2D" unique_id=942888583]
+script = ExtResource("1_61t8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614583438]
+texture = ExtResource("1_r4t7l")
+
+[node name="htt" type="Sprite2D" parent="." unique_id=518747528]
+position = Vector2(-267.96335, 112.42407)
+scale = Vector2(1.5772156, 1.3704412)
+texture = ExtResource("2_61t8s")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=1416563133]
+position = Vector2(398.00003, -147)
+scale = Vector2(5.5121946, 4.3105264)
+texture = ExtResource("3_sivno")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=422691537]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=859765197]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1960387465]
+offset_left = 181.0
+offset_top = -264.0
+offset_right = 685.25
+offset_bottom = -126.75
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5bhxlwdegyg4"]
+
+[ext_resource type="Script" uid="uid://drmgw0x0vr5me" path="res://도자기.gd" id="1_ghgqt"]
+[ext_resource type="Texture2D" uid="uid://c1106jt648h2x" path="res://도자기모둠/도자기01.png" id="2_wcqfd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_parby"]
+radius = 98.24968
+
+[node name="dojagi" type="Node2D" unique_id=1271092628 groups=["pottery"]]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1651699882 groups=["pottery"]]
+script = ExtResource("1_ghgqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=654415138]
+scale = Vector2(3.3536584, 2.9)
+texture = ExtResource("2_wcqfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1874022423 groups=["pottery"]]
+shape = SubResource("CircleShape2D_parby")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

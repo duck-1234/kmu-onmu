@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dw15yx5ko836k"]
+
+[ext_resource type="Script" uid="uid://dpvppghusn28v" path="res://srartstory.gd" id="1_y0dwd"]
+[ext_resource type="Texture2D" uid="uid://bicl8phlo0am6" path="res://iloveimg-resized/대학 건물의 픽셀 아트 풍경.png" id="2_r14vg"]
+[ext_resource type="Texture2D" uid="uid://bfaj5mlg274kx" path="res://iloveimg-resized/juimgone.png" id="3_md65j"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="4_ggvrl"]
+
+[node name="startstory" type="Node2D" unique_id=2096314485]
+script = ExtResource("1_y0dwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1176421172]
+texture = ExtResource("2_r14vg")
+
+[node name="Juimgone" type="Sprite2D" parent="." unique_id=1067135920]
+position = Vector2(-500, 338)
+scale = Vector2(0.4369863, 0.414611)
+texture = ExtResource("3_md65j")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=812564949]
+position = Vector2(-343, 179)
+scale = Vector2(2.5813007, 1.668421)
+texture = ExtResource("4_ggvrl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1189564294]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=2147244622]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=2138547820]
+offset_left = -443.0
+offset_top = 140.0
+offset_right = -223.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cwx0wpa75xikp"]
+
+[ext_resource type="Texture2D" uid="uid://sfac8y7kpbf1" path="res://2d겜프 에셋/스크린샷 2026-05-27 143647.png" id="1_skxmo"]
+[ext_resource type="Script" uid="uid://dcikgr5o23imn" path="res://piece.gd" id="2_my1ki"]
+[ext_resource type="Texture2D" uid="uid://bv3khc1ylhash" path="res://jimsunggiwa/1.png" id="3_ka2ki"]
+[ext_resource type="Texture2D" uid="uid://d2gxw5hdens2l" path="res://jimsunggiwa/2.png" id="4_0i82w"]
+[ext_resource type="Texture2D" uid="uid://cn7riwv5pp6ec" path="res://jimsunggiwa/3.png" id="5_hkjtd"]
+[ext_resource type="Texture2D" uid="uid://clddfebccyjaf" path="res://jimsunggiwa/4.png" id="6_1dqo4"]
+[ext_resource type="Script" uid="uid://b545geuy43gg2" path="res://game_manager.gd" id="7_ka2ki"]
+[ext_resource type="Texture2D" uid="uid://bga8h05r3bdyj" path="res://jimsunggiwa/스크린샷 2026-05-27 143329.png" id="8_0i82w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53f8p"]
+size = Vector2(287, 339)
+
+[node name="jimsung_giwa" type="Node2D" unique_id=1560537284]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1301335672]
+texture = ExtResource("1_skxmo")
+
+[node name="Piece1" type="Area2D" parent="." unique_id=260563520 groups=["puzzle"]]
+position = Vector2(-180, -180)
+script = ExtResource("2_my1ki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece1" unique_id=1718848408]
+texture = ExtResource("3_ka2ki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece1" unique_id=1213790661]
+shape = SubResource("RectangleShape2D_53f8p")
+
+[node name="Piece2" type="Area2D" parent="." unique_id=1212426280 groups=["puzzle"]]
+position = Vector2(180, -180)
+script = ExtResource("2_my1ki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece2" unique_id=1882857916]
+texture = ExtResource("4_0i82w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece2" unique_id=1441098175]
+shape = SubResource("RectangleShape2D_53f8p")
+
+[node name="Piece3" type="Area2D" parent="." unique_id=1587678080 groups=["puzzle"]]
+position = Vector2(-180, 180)
+script = ExtResource("2_my1ki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece3" unique_id=1034589012]
+texture = ExtResource("5_hkjtd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece3" unique_id=1831944797]
+shape = SubResource("RectangleShape2D_53f8p")
+
+[node name="Piece4" type="Area2D" parent="." unique_id=898973716 groups=["puzzle"]]
+position = Vector2(180, 180)
+script = ExtResource("2_my1ki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece4" unique_id=662113938]
+texture = ExtResource("6_1dqo4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece4" unique_id=808020052]
+shape = SubResource("RectangleShape2D_53f8p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1503769404]
+
+[node name="GameManager" type="Node" parent="." unique_id=583720322 groups=["puzzle_manager"]]
+script = ExtResource("7_ka2ki")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2094849227]
+
+[node name="Panel" type="Panel" parent="UI" unique_id=799058307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClearLabel" type="Label" parent="UI/Panel" unique_id=2007946589]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.5
+anchor_right = 0.497
+anchor_bottom = 0.5
+offset_left = -327.774
+offset_top = -283.0
+offset_right = 329.226
+offset_bottom = -58.0
+theme_override_font_sizes/font_size = 100
+
+[node name="Button" type="Button" parent="UI/Panel" unique_id=257267108]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 1.016
+offset_left = 558.0
+offset_top = 545.0
+offset_right = -544.27515
+offset_bottom = -139.59204
+theme_override_font_sizes/font_size = 70
+text = "확인
+"
+
+[node name="TryLabel" type="Label" parent="UI/Panel" unique_id=901126696]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 258.0
+offset_bottom = 151.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Panel" unique_id=795066460]
+position = Vector2(1434.5857, 309.65265)
+scale = Vector2(0.891591, 0.96254253)
+texture = ExtResource("8_0i82w")
+
+[node name="Label" type="Label" parent="UI/Panel" unique_id=1755631860]
+layout_mode = 0
+offset_left = 1197.0
+offset_top = 558.0
+offset_right = 1663.0
+offset_bottom = 665.0
+theme_override_font_sizes/font_size = 37
+text = "전시명칭-짐승얼굴무늬 기와
+국적/시대	한국 - 고려"
+
+[connection signal="mouse_entered" from="Piece1" to="Piece1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Piece1" to="Piece1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Piece2" to="Piece2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Piece2" to="Piece2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Piece3" to="Piece3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Piece3" to="Piece3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Piece4" to="Piece4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Piece4" to="Piece4" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Panel/Button" to="Piece1" method="_on_button_pressed"]

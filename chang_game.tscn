@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dworl6or3rwq0"]
+
+[ext_resource type="Texture2D" uid="uid://bki7y8qshmews" path="res://iloveimg-resized/ChatGPT Image 2026년 5월 19일 오전 11_14_45.png" id="2_kw6r3"]
+[ext_resource type="Script" uid="uid://c3wm3gwuv47rq" path="res://dummy.gd" id="2_napob"]
+[ext_resource type="Texture2D" uid="uid://be3vqo0psua4q" path="res://2d겜프 에셋/허수아비.png" id="3_napob"]
+[ext_resource type="Script" uid="uid://c141s0hn56m1s" path="res://chang.gd" id="4_vdtph"]
+[ext_resource type="Texture2D" uid="uid://rccfsgpmao4s" path="res://chang.png" id="5_cmdxc"]
+[ext_resource type="Texture2D" uid="uid://dkkksr8q4qc7a" path="res://iloveimg-resized/changjigi.png" id="7_fv8wv"]
+[ext_resource type="Texture2D" uid="uid://dfo86rej40grv" path="res://2d겜프 에셋/image-removebg-preview (6).png" id="7_nrff2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4735"]
+size = Vector2(197.80707, 33.99272)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_napob"]
+radius = 217.08618
+height = 505.27515
+
+[node name="chang_game" type="Node2D" unique_id=1509147434 groups=["game"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441126711]
+texture = ExtResource("2_kw6r3")
+
+[node name="dummy" type="Area2D" parent="." unique_id=1781306540]
+position = Vector2(465.99994, 249.00002)
+scale = Vector2(0.18859649, 0.21491225)
+script = ExtResource("2_napob")
+
+[node name="Sprite2D3" type="Sprite2D" parent="dummy" unique_id=744520706]
+position = Vector2(350.7036, 318.25006)
+scale = Vector2(2.5483603, 2.1551726)
+texture = ExtResource("3_napob")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="dummy" unique_id=1937634132]
+position = Vector2(0.00032362828, 32.57136)
+polygon = PackedVector2Array(365.8606, 702.6123, 376.4651, 456.00012, 540.83716, 442.0409, 519.6279, 316.4082, 524.9302, 237.30615, 832.4651, 204.73474, 821.8606, 148.89795, 588.5581, 116.32654, 440.09302, -27.918335, 487.81396, -139.5918, 402.9768, -228.00006, 281.0232, -209.38776, 217.39526, -88.4082, 243.90698, 27.918335, 243.90698, 27.918335, 121.95337, 125.63269, -159.06982, 116.32654, -185.5813, 237.30615, 106.04663, 241.95923, 148.46509, 395.51025, 238.60474, 446.69397, 281.0232, 711.91846)
+
+[node name="Spear" type="RigidBody2D" parent="." unique_id=804547062]
+freeze = true
+script = ExtResource("4_vdtph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spear" unique_id=5237113]
+rotation = -0.26179937
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_t4735")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spear" unique_id=1979606501]
+rotation = 1.3089969
+scale = Vector2(1.0123343, 0.88626605)
+texture = ExtResource("5_cmdxc")
+
+[node name="Player" type="Area2D" parent="." unique_id=1500952834]
+position = Vector2(-704.99994, 300)
+scale = Vector2(0.42840096, 0.39978212)
+
+[node name="player" type="Sprite2D" parent="Player" unique_id=1363439916]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("7_fv8wv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1790218979]
+shape = SubResource("CapsuleShape2D_napob")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=46467471]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2049263216]
+offset_right = 365.0
+offset_bottom = 58.0
+max_value = 1200.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=884424064]
+visible = false
+offset_left = 433.0
+offset_top = 187.0
+offset_right = 504.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "명중!"
+
+[node name="ResultPanel" type="Panel" parent="CanvasLayer" unique_id=118919235]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel" unique_id=966320078]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 326.0
+offset_right = 1170.0
+offset_bottom = 534.0
+theme_override_font_sizes/font_size = 40
+
+[node name="Button" type="Button" parent="CanvasLayer/ResultPanel" unique_id=1340841188]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 600.0
+offset_right = 990.0
+offset_bottom = 741.0
+theme_override_font_sizes/font_size = 48
+text = "확인
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultPanel" unique_id=1134185149]
+layout_mode = 0
+offset_left = 1095.0
+offset_top = 452.0
+offset_right = 1407.0
+offset_bottom = 475.0
+theme_override_font_sizes/font_size = 33
+text = "전시명칭-갑옷과 투구/대가야 무사
+국적/시대	-한국 - 대가야"
+
+[node name="gapot&gisa" type="Sprite2D" parent="CanvasLayer/ResultPanel" unique_id=1050458617]
+position = Vector2(1335, 329)
+scale = Vector2(1.5696721, 1.3988764)
+texture = ExtResource("7_nrff2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=657826047]
+
+[connection signal="body_entered" from="dummy" to="dummy" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/ResultPanel/Button" to="dummy" method="_on_button_pressed"]

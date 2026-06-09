@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://osdyty38c0ab"]
+
+[ext_resource type="Texture2D" uid="uid://brhcp6kske3rd" path="res://2d겜프 에셋/대학 건물의 픽셀 아트 풍경.png" id="1_2la1p"]
+[ext_resource type="Script" uid="uid://dslfa2jqmxyyl" path="res://opningbutton.gd" id="1_ltql1"]
+[ext_resource type="Texture2D" uid="uid://di6ep6qy48cli" path="res://2d겜프 에셋/image-removebg-preview (24).png" id="2_ltql1"]
+
+[node name="main" type="Node2D" unique_id=1188725318]
+script = ExtResource("1_ltql1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1735157806]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=499429368]
+texture = ExtResource("1_2la1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1362140480]
+position = Vector2(-668, -303)
+scale = Vector2(0.74166673, 0.72346693)
+texture = ExtResource("2_ltql1")
+
+[node name="Button" type="Button" parent="." unique_id=52632199]
+offset_left = -226.0
+offset_top = 133.0
+offset_right = 235.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 100
+text = "start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

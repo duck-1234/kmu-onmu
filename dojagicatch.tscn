@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://cbj2fyh7nmqbf"]
+
+[ext_resource type="Texture2D" uid="uid://c5ircqocqhm7" path="res://iloveimg-resized/도자기 분류창고.png" id="1_1jtol"]
+[ext_resource type="Script" uid="uid://bhgrjq21n4fp7" path="res://dojagicatch.gd" id="1_tu8q2"]
+[ext_resource type="Texture2D" uid="uid://c1notwahxrjw0" path="res://2d겜프 에셋/EoqQkd.png" id="2_hy68g"]
+[ext_resource type="PackedScene" uid="uid://crrjbr876eg0u" path="res://obstacle.tscn" id="3_1drey"]
+[ext_resource type="Texture2D" uid="uid://cxjle8404wibs" path="res://2d겜프 에셋/modom.png" id="3_hr5nk"]
+[ext_resource type="Script" uid="uid://617x8pdvoiui" path="res://hand.gd" id="4_tu8q2"]
+[ext_resource type="Script" uid="uid://cynshygvitq5u" path="res://DJGspawner.gd" id="5_hy68g"]
+[ext_resource type="PackedScene" uid="uid://5bhxlwdegyg4" path="res://dojagi.tscn" id="6_hr5nk"]
+[ext_resource type="Script" uid="uid://bigyjtxfawwba" path="res://failzone.gd" id="8_eegf6"]
+[ext_resource type="Texture2D" uid="uid://dg36xqv1aru2y" path="res://도자기모둠/a_0g4Ud018svc1tgsarwc9garf_eq2exn.jpg" id="9_qkvxw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbi57"]
+atlas = ExtResource("3_hr5nk")
+region = Rect2(135, 0, 135, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwe0f"]
+atlas = ExtResource("3_hr5nk")
+region = Rect2(0, 0, 108, 242)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xilib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbi57")
+}],
+"loop": false,
+"name": &"catch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwe0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jtol"]
+radius = 29.855076
+height = 116.21164
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkvxw"]
+size = Vector2(303.45123, 22.79176)
+
+[node name="dojagicatch" type="Node2D" unique_id=1069474588]
+script = ExtResource("1_tu8q2")
+pottery_scene = ExtResource("6_hr5nk")
+obstacle_scene = ExtResource("3_1drey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2020582125]
+texture = ExtResource("1_1jtol")
+
+[node name="EoqQkd" type="Sprite2D" parent="Sprite2D" unique_id=1235999933]
+position = Vector2(591.5, 1.0000019)
+scale = Vector2(2.4279277, 2.2627738)
+texture = ExtResource("2_hy68g")
+
+[node name="hand" type="Area2D" parent="." unique_id=170480475]
+position = Vector2(151, -114)
+scale = Vector2(3.0090177, 1.9543834)
+script = ExtResource("4_tu8q2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hand" unique_id=783533923]
+sprite_frames = SubResource("SpriteFrames_xilib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=1207356443]
+position = Vector2(8.506195, 72.06786)
+rotation = 1.0471976
+shape = SubResource("CapsuleShape2D_1jtol")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1040781310]
+position = Vector2(-832, -289)
+rotation = 0.8441462
+scale = Vector2(2.2645657, 2.783082)
+skew = 0.36788464
+script = ExtResource("5_hy68g")
+pottery_scene = ExtResource("6_hr5nk")
+
+[node name="Item" type="Node2D" parent="." unique_id=1809707076]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2135484284]
+
+[node name="GameTimer" type="Timer" parent="." unique_id=999172723]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1665391904]
+
+[node name="Control" type="Control" parent="UI" unique_id=791974700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="UI/Control" unique_id=341671162]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 28.0
+text = "타임"
+
+[node name="ArtifactLabel" type="Label" parent="UI/Control" unique_id=1256783750]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 55.0
+text = "아티타벨 "
+
+[node name="ObstacleLabel" type="Label" parent="UI/Control" unique_id=338287676]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 60.0
+offset_bottom = 109.0
+text = "obs라벨"
+
+[node name="MissLabel" type="Label" parent="UI/Control" unique_id=986967803]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 40.0
+offset_bottom = 139.0
+text = "미스
+"
+
+[node name="TimeBar" type="ProgressBar" parent="UI/Control" unique_id=497871497]
+layout_mode = 0
+offset_right = 456.0
+offset_bottom = 27.0
+max_value = 30.0
+
+[node name="Panel" type="Panel" parent="." unique_id=2029918713]
+visible = false
+offset_left = -885.0
+offset_top = -478.0
+offset_right = 887.0
+offset_bottom = 477.0
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1145325529]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 50.0
+offset_right = 1591.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 100
+text = "김천 송죽리 신석기 시대 도자기"
+
+[node name="ArtifactResult" type="Label" parent="Panel" unique_id=519485592]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 229.0
+offset_right = 801.0
+offset_bottom = 285.0
+theme_override_font_sizes/font_size = 40
+text = "유물 "
+
+[node name="ObstacleResult" type="Label" parent="Panel" unique_id=1553460691]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 304.0
+offset_right = 831.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 40
+text = "장애물"
+
+[node name="MissResult" type="Label" parent="Panel" unique_id=882318902]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 376.0
+offset_right = 805.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 40
+text = "미스 "
+
+[node name="RetryButton" type="Button" parent="Panel" unique_id=902580065]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 645.0
+offset_right = 1142.0
+offset_bottom = 765.0
+theme_override_font_sizes/font_size = 80
+text = "확인 "
+
+[node name="A0g4Ud018Svc1Tgsarwc9GarfEq2Exn" type="Sprite2D" parent="Panel" unique_id=1596997286]
+position = Vector2(305, 472)
+scale = Vector2(1.206767, 1.2435234)
+texture = ExtResource("9_qkvxw")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1440962127]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 789.0
+offset_right = 714.0
+offset_bottom = 913.0
+theme_override_font_sizes/font_size = 30
+text = "전시명칭-김천 송죽리 신석기 시대 도자기 
+국적/시대	-한국 - 신석기시대 "
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1786540003]
+
+[node name="failzone" type="Area2D" parent="." unique_id=563322918]
+position = Vector2(151, -114)
+scale = Vector2(3.0090177, 1.9543834)
+script = ExtResource("8_eegf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="failzone" unique_id=5049350]
+position = Vector2(80.42493, 267.60358)
+shape = SubResource("RectangleShape2D_qkvxw")
+
+[connection signal="area_entered" from="hand" to="hand" method="_on_area_entered"]
+[connection signal="area_exited" from="hand" to="hand" method="_on_area_exited"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="area_entered" from="failzone" to="failzone" method="_on_area_entered"]

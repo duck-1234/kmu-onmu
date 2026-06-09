@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://crrjbr876eg0u"]
+
+[ext_resource type="Script" uid="uid://dhxyoy6noqyo4" path="res://장애물.gd" id="1_aubd6"]
+[ext_resource type="Texture2D" uid="uid://d26bxgrjwbnlp" path="res://2d겜프 에셋/bomb.png" id="2_vcivv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tyhon"]
+radius = 14.422205
+
+[node name="obstacle" type="Node2D" unique_id=395955703 groups=["obstacle"]]
+scale = Vector2(0.1, 0.1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2073736469 groups=["obstacle"]]
+script = ExtResource("1_aubd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=270806118 groups=["obstacle"]]
+position = Vector2(0.5, 0)
+scale = Vector2(0.13063063, 0.1147541)
+texture = ExtResource("2_vcivv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1467067421]
+shape = SubResource("CircleShape2D_tyhon")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

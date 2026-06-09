@@ -1,0 +1,655 @@
+[gd_scene format=3 uid="uid://bqul54n5dhpmf"]
+
+[ext_resource type="Texture2D" uid="uid://baxlpj1rpq6n4" path="res://digger/ChatGPT Image 2026년 6월 2일 오후 10_30_00 (1).png" id="1_g0mws"]
+[ext_resource type="Texture2D" uid="uid://divco3qekb52a" path="res://digger/stone.png" id="4_qoroh"]
+[ext_resource type="Texture2D" uid="uid://bfi1w4sly7xq6" path="res://digger/umul1.png" id="5_d5e3l"]
+[ext_resource type="Texture2D" uid="uid://clj05hirohpb6" path="res://digger/umul2.png" id="6_cmuct"]
+[ext_resource type="Texture2D" uid="uid://f7yqcgk14b8g" path="res://digger/umul3.png" id="7_dxrxr"]
+[ext_resource type="Script" uid="uid://bwbxkc1p5uapt" path="res://diggame_manager.gd" id="8_12dia"]
+[ext_resource type="Script" uid="uid://dqg1j001grdny" path="res://Cell.gd" id="8_qoroh"]
+[ext_resource type="Texture2D" uid="uid://prkhuxxpk2cx" path="res://2d겜프 에셋/농기구 image-removebg-preview (9).png" id="9_qoroh"]
+[ext_resource type="Script" uid="uid://c5huew7mlu85o" path="res://tool_manager.gd" id="10_d5e3l"]
+[ext_resource type="Script" uid="uid://pguwffs8apk0" path="res://tool_cursor.gd" id="11_d5e3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5e3l"]
+size = Vector2(162, 173.5)
+
+[node name="excavation" type="Node2D" unique_id=1473673941]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=115398501]
+texture = ExtResource("1_g0mws")
+
+[node name="ArtifactManager" type="Node2D" parent="." unique_id=881143164]
+
+[node name="Sprite2D" type="Sprite2D" parent="ArtifactManager" unique_id=1899374676]
+position = Vector2(-484, 282.99997)
+rotation = -1.5707964
+scale = Vector2(0.41937372, 0.9715032)
+texture = ExtResource("5_d5e3l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ArtifactManager" unique_id=138981708]
+position = Vector2(485.00003, -67)
+scale = Vector2(0.41875005, 0.32398567)
+texture = ExtResource("6_cmuct")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ArtifactManager" unique_id=1801035306]
+position = Vector2(-325.93753, -90)
+scale = Vector2(0.46553156, 0.41228068)
+texture = ExtResource("7_dxrxr")
+
+[node name="ToolManager" type="Node2D" parent="." unique_id=1854053228]
+script = ExtResource("10_d5e3l")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1198247894]
+
+[node name="digGameManager" type="Node2D" parent="." unique_id=265993936]
+script = ExtResource("8_12dia")
+
+[node name="world" type="Node2D" parent="." unique_id=1283297919]
+
+[node name="stone" type="Node2D" parent="world" unique_id=1200532902]
+
+[node name="d1" type="Area2D" parent="world/stone" unique_id=567546588]
+position = Vector2(-641, -253)
+script = ExtResource("8_qoroh")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d1" unique_id=1675837413]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d1" unique_id=1793201752]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d2" type="Area2D" parent="world/stone" unique_id=1299635780]
+position = Vector2(-478, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(1, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d2" unique_id=1558120316]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d2" unique_id=432320797]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d3" type="Area2D" parent="world/stone" unique_id=989689908]
+position = Vector2(-316, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(2, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d3" unique_id=869693509]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d3" unique_id=2072186484]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d4" type="Area2D" parent="world/stone" unique_id=1665488345]
+position = Vector2(-153, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(3, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d4" unique_id=1443660843]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d4" unique_id=313130357]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d5" type="Area2D" parent="world/stone" unique_id=620680025]
+position = Vector2(10, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(4, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d5" unique_id=1313730393]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d5" unique_id=831676505]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d6" type="Area2D" parent="world/stone" unique_id=866617300]
+position = Vector2(173, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(5, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d6" unique_id=1464863260]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d6" unique_id=1891391612]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d7" type="Area2D" parent="world/stone" unique_id=1470422480]
+position = Vector2(336, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(6, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d7" unique_id=1405551928]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d7" unique_id=723303990]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d8" type="Area2D" parent="world/stone" unique_id=137017026]
+position = Vector2(499, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(7, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d8" unique_id=742849601]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d8" unique_id=1189290112]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d9" type="Area2D" parent="world/stone" unique_id=251758581]
+position = Vector2(662, -253)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(8, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d9" unique_id=1727759704]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d9" unique_id=1253190590]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d10" type="Area2D" parent="world/stone" unique_id=740345462]
+position = Vector2(-641, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(0, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d10" unique_id=401781908]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d10" unique_id=1160590382]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d11" type="Area2D" parent="world/stone" unique_id=1415138278]
+position = Vector2(-478, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(1, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d11" unique_id=316525261]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d11" unique_id=1527463291]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d12" type="Area2D" parent="world/stone" unique_id=1854052615]
+position = Vector2(-316, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(2, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d12" unique_id=1742319886]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d12" unique_id=3958487]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d13" type="Area2D" parent="world/stone" unique_id=67901071]
+position = Vector2(-153, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(3, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d13" unique_id=1468614787]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d13" unique_id=844523638]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d14" type="Area2D" parent="world/stone" unique_id=1556396763]
+position = Vector2(10, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(4, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d14" unique_id=1998358299]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d14" unique_id=1659876321]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d15" type="Area2D" parent="world/stone" unique_id=1197975267]
+position = Vector2(173, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(5, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d15" unique_id=1930315615]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d15" unique_id=1034611398]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d16" type="Area2D" parent="world/stone" unique_id=1235395961]
+position = Vector2(336, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(6, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d16" unique_id=411591978]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d16" unique_id=756280503]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d17" type="Area2D" parent="world/stone" unique_id=1277867414]
+position = Vector2(499, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(7, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d17" unique_id=1895433465]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d17" unique_id=867402557]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d18" type="Area2D" parent="world/stone" unique_id=483177515]
+position = Vector2(662, -78)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(8, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d18" unique_id=1621380708]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d18" unique_id=2081261465]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d19" type="Area2D" parent="world/stone" unique_id=2024875065]
+position = Vector2(-642, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(0, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d19" unique_id=1472446538]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d19" unique_id=21643373]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d20" type="Area2D" parent="world/stone" unique_id=1297194887]
+position = Vector2(-479, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(1, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d20" unique_id=1634299289]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d20" unique_id=546740949]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d21" type="Area2D" parent="world/stone" unique_id=941663574]
+position = Vector2(-317, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(2, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d21" unique_id=1107442725]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d21" unique_id=1372594817]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d22" type="Area2D" parent="world/stone" unique_id=2045866179]
+position = Vector2(-154, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(3, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d22" unique_id=1250659839]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d22" unique_id=84656740]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d23" type="Area2D" parent="world/stone" unique_id=713035163]
+position = Vector2(9, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(4, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d23" unique_id=1733118830]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d23" unique_id=1086575081]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d24" type="Area2D" parent="world/stone" unique_id=1767855207]
+position = Vector2(172, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(5, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d24" unique_id=2142910162]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d24" unique_id=1447031033]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d25" type="Area2D" parent="world/stone" unique_id=185503116]
+position = Vector2(335, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(6, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d25" unique_id=1757517044]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d25" unique_id=380100457]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d26" type="Area2D" parent="world/stone" unique_id=413485286]
+position = Vector2(498, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(7, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d26" unique_id=1377622047]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d26" unique_id=871327727]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d27" type="Area2D" parent="world/stone" unique_id=1357809033]
+position = Vector2(661, 96)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(8, 2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d27" unique_id=49513912]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d27" unique_id=56938538]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d28" type="Area2D" parent="world/stone" unique_id=1789646383]
+position = Vector2(-643, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(0, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d28" unique_id=718342982]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d28" unique_id=1728005795]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d29" type="Area2D" parent="world/stone" unique_id=1583869088]
+position = Vector2(-480, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(1, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d29" unique_id=452796040]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d29" unique_id=1881914323]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d30" type="Area2D" parent="world/stone" unique_id=1999203572]
+position = Vector2(-318, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(2, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d30" unique_id=231803052]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d30" unique_id=1352656357]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d31" type="Area2D" parent="world/stone" unique_id=327279709]
+position = Vector2(-155, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(3, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d31" unique_id=425937505]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d31" unique_id=1335593475]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d32" type="Area2D" parent="world/stone" unique_id=476042883]
+position = Vector2(8, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(4, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d32" unique_id=1331477892]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d32" unique_id=954261228]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d33" type="Area2D" parent="world/stone" unique_id=1902193842]
+position = Vector2(171, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(5, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d33" unique_id=1292086881]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d33" unique_id=270085448]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d34" type="Area2D" parent="world/stone" unique_id=1639235831]
+position = Vector2(334, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(6, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d34" unique_id=668246298]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d34" unique_id=744423412]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d35" type="Area2D" parent="world/stone" unique_id=33613765]
+position = Vector2(497, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(7, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d35" unique_id=1823847826]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d35" unique_id=1455228229]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="d36" type="Area2D" parent="world/stone" unique_id=1703206178]
+position = Vector2(660, 272)
+script = ExtResource("8_qoroh")
+cell_pos = Vector2i(8, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="world/stone/d36" unique_id=81793108]
+position = Vector2(-7, 6)
+scale = Vector2(0.9444444, 1)
+texture = ExtResource("4_qoroh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stone/d36" unique_id=237003792]
+position = Vector2(-6, 3)
+shape = SubResource("RectangleShape2D_d5e3l")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=870356417]
+
+[node name="FoundLabel" type="Label" parent="UI" unique_id=1647762414]
+offset_left = -749.0
+offset_top = -450.0
+offset_right = -458.0
+offset_bottom = -349.0
+theme_override_font_sizes/font_size = 65
+text = "발견! "
+
+[node name="ClearPanel" type="Panel" parent="UI" unique_id=1551055328]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/ClearPanel" unique_id=940958254]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 588.0
+offset_right = 1155.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 100
+text = "확인"
+
+[node name="TimeLabel" type="Label" parent="UI/ClearPanel" unique_id=227755270]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 179.0
+offset_right = 581.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 48
+text = "타임 
+"
+
+[node name="ClickLabel" type="Label" parent="UI/ClearPanel" unique_id=837400307]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 117.0
+offset_right = 261.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 48
+text = "클릭 "
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/ClearPanel" unique_id=1167960992]
+position = Vector2(1409, 193.99997)
+scale = Vector2(0.9061783, 1.0180997)
+texture = ExtResource("9_qoroh")
+
+[node name="Label" type="Label" parent="UI/ClearPanel" unique_id=760156379]
+layout_mode = 0
+offset_left = 1169.0
+offset_top = 258.0
+offset_right = 1683.0
+offset_bottom = 470.0
+theme_override_font_sizes/font_size = 41
+text = "전시명칭-돌낫과 홈자귀
+국적/시대	-한국 - 신석기시대 "
+
+[node name="ToolCursor" type="Sprite2D" parent="." unique_id=441553796]
+script = ExtResource("11_d5e3l")
+
+[connection signal="pressed" from="UI/ClearPanel/Button" to="digGameManager" method="_on_button_pressed"]

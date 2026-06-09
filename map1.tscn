@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bd4odw656glfj"]
+
+[ext_resource type="Texture2D" uid="uid://dsfgey38bc6ou" path="res://iloveimg-resized/전시관1.png" id="1_p84jh"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="2_ibjaa"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="3_sko3c"]
+[ext_resource type="Texture2D" uid="uid://cuvnc3rhigrc3" path="res://2d겜프 에셋/image-Photoroom (2).png" id="4_flm4b"]
+[ext_resource type="Script" uid="uid://bi2w2wcv1y6nr" path="res://outline.gd" id="6_sko3c"]
+[ext_resource type="Texture2D" uid="uid://dfo86rej40grv" path="res://2d겜프 에셋/image-removebg-preview (6).png" id="7_gtvy4"]
+[ext_resource type="Shader" uid="uid://n7kqdb828l8x" path="res://map1.gdshader" id="7_qva1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na4y3"]
+size = Vector2(37, 27)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sko3c"]
+shader = ExtResource("7_qva1w")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qva1w"]
+shader = ExtResource("7_qva1w")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[node name="map1" type="Node2D" unique_id=818651691]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2005397973]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736138503]
+texture = ExtResource("1_p84jh")
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("2_ibjaa")]
+z_index = 1
+position = Vector2(257, -28)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1176441902]
+visible = false
+position = Vector2(249, -33)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=77732904]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(-1111, 13, -822, 13, -828, -54, -450, -86, -210, -88, 60.881226, -72.23442, 66, 3, 174, 11, 457, 20, 458, 93, 566, 110, 612, 29, 611, -423, -1109, -423)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1559481817]
+position = Vector2(3, -66)
+polygon = PackedVector2Array(-724, 223, -775, 381, -477, 384, -448, 286, -466, 264, -514, 257, -557, 224)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=310192253]
+position = Vector2(-38, -62)
+polygon = PackedVector2Array(-22, 224, -10, 291, 17, 323, 21, 378, 190, 383, 317, 381, 352, 384, 352, 349, 267, 313, 212, 271, 155, 226, 130, 222)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1411822672]
+position = Vector2(-249, 8)
+polygon = PackedVector2Array(-81, 93, -127, 83, -82, 95, -82, 106, 55, 106, 57, 89, 78, 81, 56, 91)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1051275658]
+polygon = PackedVector2Array(-1058, 68, -839, 39, -840, 101, -1055, 134)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=97389451]
+position = Vector2(-253, -3)
+polygon = PackedVector2Array(449, 45, 479, 64, 548, 80, 610, 111, 611, 83, 432, 15)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2103125343]
+polygon = PackedVector2Array(-1114, 17, -1113, 487, 610, 488, 610, 26, 593, 480, -1102, 472)
+
+[node name="gostair1" type="Area2D" parent="." unique_id=1858696978]
+script = ExtResource("3_sko3c")
+target_scene = "res://stair.tscn"
+
+[node name="m1_to_mainCollisionShape2D" type="CollisionShape2D" parent="gostair1" unique_id=797428030]
+position = Vector2(251, -65)
+shape = SubResource("RectangleShape2D_na4y3")
+
+[node name="object" type="Node" parent="." unique_id=872110524]
+
+[node name="object1" type="Node2D" parent="object" unique_id=1570758044]
+position = Vector2(79.999985, -30)
+scale = Vector2(0.63745016, 0.63229376)
+
+[node name="object1" type="Area2D" parent="object/object1" unique_id=2004896223 groups=["game"]]
+position = Vector2(79.999985, -30)
+scale = Vector2(0.63745016, 0.63229376)
+script = ExtResource("6_sko3c")
+target_scene = "res://changstory.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="object/object1/object1" unique_id=178326608]
+z_index = 2
+material = SubResource("ShaderMaterial_sko3c")
+position = Vector2(-364.2147, 122.484665)
+scale = Vector2(2.642524, 2.8455565)
+texture = ExtResource("7_gtvy4")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="object/object1/object1" unique_id=796699206]
+position = Vector2(-409.74277, 281.3159)
+polygon = PackedVector2Array(-370.377, -43.77237, -195.64764, 53.777527, 195.64766, 48.774963, 365.45508, -38.769814)
+
+[node name="object2" type="Node2D" parent="object" unique_id=470212111]
+position = Vector2(79.999985, -30)
+scale = Vector2(0.63745016, 0.63229376)
+
+[node name="object2" type="Area2D" parent="object/object2" unique_id=457580656 groups=["game"]]
+position = Vector2(79.99998, -29.999996)
+scale = Vector2(0.63745016, 0.63229376)
+script = ExtResource("6_sko3c")
+target_scene = "res://giwastory.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="object/object2/object2" unique_id=1846403560]
+z_index = 2
+material = SubResource("ShaderMaterial_qva1w")
+position = Vector2(-1200.9469, 636.0067)
+scale = Vector2(3.7984645, 4.3921213)
+texture = ExtResource("4_flm4b")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="object/object2/object2" unique_id=77767751]
+position = Vector2(-1235.4005, 655.25714)
+polygon = PackedVector2Array(-420.8271, 267.6369, -423.28802, -222.61389, 152.58057, -227.61646, 260.86353, -97.54993, 433.13193, 2.5012817, 511.88318, 52.526855, 487.2734, 142.57288, 364.22455, 282.64453)
+
+[connection signal="body_entered" from="gostair1" to="gostair1" method="_on_body_entered"]
+[connection signal="body_exited" from="gostair1" to="gostair1" method="_on_body_exited"]
+[connection signal="body_entered" from="object/object1/object1" to="object/object1/object1" method="_on_body_entered"]
+[connection signal="body_exited" from="object/object1/object1" to="object/object1/object1" method="_on_body_exited"]
+[connection signal="body_entered" from="object/object2/object2" to="object/object2/object2" method="_on_body_entered"]
+[connection signal="body_exited" from="object/object2/object2" to="object/object2/object2" method="_on_body_exited"]

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://dohenfeh7ydf1"]
+
+[ext_resource type="Texture2D" uid="uid://wucr5m6evb17" path="res://2d겜프 에셋/2관 (2).png" id="1_kyc3v"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="2_55y45"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="3_dt2mv"]
+[ext_resource type="Script" uid="uid://bi2w2wcv1y6nr" path="res://outline.gd" id="4_ehxak"]
+[ext_resource type="Shader" uid="uid://n7kqdb828l8x" path="res://map1.gdshader" id="5_ky2co"]
+[ext_resource type="Texture2D" uid="uid://cr161nebmomm3" path="res://2d겜프 에셋/2관도자기.png" id="7_ky2co"]
+[ext_resource type="Texture2D" uid="uid://prkhuxxpk2cx" path="res://2d겜프 에셋/농기구 image-removebg-preview (9).png" id="8_dt2mv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dt2mv"]
+shader = ExtResource("5_ky2co")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8cy1"]
+radius = 43.0
+height = 432.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqkjv"]
+shader = ExtResource("5_ky2co")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dayf4"]
+radius = 136.69308
+
+[node name="map2" type="Node2D" unique_id=1468227502]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1637472614]
+
+[node name="2관" type="Sprite2D" parent="." unique_id=1971469534]
+texture = ExtResource("1_kyc3v")
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("2_55y45")]
+z_index = 2
+position = Vector2(-765.99994, 303)
+scale = Vector2(1.7, 1.7)
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1230389096]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=362160647]
+polygon = PackedVector2Array(861, -42, 859, 471, 835, 458, -872, 450, -867, -93, -859, -87, -857, 435, 831, 426, 825, -34, 235, -80, -857, -98, -863, -459, 857, -463)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D" unique_id=1827988752]
+position = Vector2(241, -71)
+polygon = PackedVector2Array(-21, 31, -18, 184, 71, 197, 73, 33)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D" unique_id=294685914]
+position = Vector2(9, -65)
+polygon = PackedVector2Array(-155, 65, -163, 212, 127, 221, 129, 57)
+
+[node name="gostair" type="Area2D" parent="." unique_id=1765097734]
+position = Vector2(714, 274)
+scale = Vector2(1.7, 1.7)
+script = ExtResource("3_dt2mv")
+target_scene = "res://stair.tscn"
+
+[node name="m2_to_stairCollisionShape2D" type="CollisionPolygon2D" parent="gostair" unique_id=608123507]
+position = Vector2(-546.4706, -414.11765)
+rotation = 1.5707964
+polygon = PackedVector2Array(435.8824, 367.0588, 510.5883, 362.35294, 499.4118, 216.47058, 524.1177, 219.41174, 537.05884, 391.76468, 435.8824, 388.23532)
+
+[node name="object" type="Node" parent="." unique_id=1620105362]
+
+[node name="map2-1" type="Area2D" parent="object" unique_id=1795626449]
+position = Vector2(-630, -33)
+script = ExtResource("4_ehxak")
+target_scene = "res://djgsy.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="object/map2-1" unique_id=1023070246]
+material = SubResource("ShaderMaterial_dt2mv")
+position = Vector2(78.99999, 10.625004)
+scale = Vector2(1.4908135, 1.4605262)
+texture = ExtResource("7_ky2co")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object/map2-1" unique_id=713732005]
+position = Vector2(32, -2)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_n8cy1")
+
+[node name="map2-2" type="Area2D" parent="object" unique_id=736417383]
+position = Vector2(740, -85)
+script = ExtResource("4_ehxak")
+target_scene = "res://excasy.tscn"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="object/map2-2" unique_id=2007009858]
+material = SubResource("ShaderMaterial_aqkjv")
+position = Vector2(0, 1.000001)
+scale = Vector2(0.5600688, 0.5435521)
+texture = ExtResource("8_dt2mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object/map2-2" unique_id=1692759405]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_dayf4")
+
+[connection signal="body_entered" from="gostair" to="gostair" method="_on_body_entered"]
+[connection signal="body_exited" from="gostair" to="gostair" method="_on_body_exited"]
+[connection signal="body_entered" from="object/map2-1" to="object/map2-1" method="_on_body_entered"]
+[connection signal="body_exited" from="object/map2-1" to="object/map2-1" method="_on_body_exited"]
+[connection signal="body_entered" from="object/map2-2" to="object/map2-2" method="_on_body_entered"]
+[connection signal="body_exited" from="object/map2-2" to="object/map2-2" method="_on_body_exited"]

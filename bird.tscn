@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d33ly1r77fkbs"]
+
+[ext_resource type="Script" uid="uid://cyvbqs0louicp" path="res://bird.gd" id="1_crnqq"]
+[ext_resource type="Texture2D" uid="uid://b6wdwwg8bcay6" path="res://카메라/후투티.png" id="1_g5k2s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crnqq"]
+radius = 298.2456
+height = 608.15625
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crnqq"]
+radius = 47.095646
+
+[node name="bird" type="Area2D" unique_id=1798360924]
+script = ExtResource("1_crnqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=148482040]
+scale = Vector2(0.342, 0.25651303)
+texture = ExtResource("1_g5k2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=93403276 groups=["bird"]]
+scale = Vector2(0.342, 0.25651303)
+shape = SubResource("CapsuleShape2D_crnqq")
+
+[node name="DirectionTimer" type="Timer" parent="." unique_id=1270040651]
+wait_time = 1.5
+autostart = true
+
+[node name="CenterArea" type="Area2D" parent="." unique_id=1123400974]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterArea" unique_id=109412160]
+shape = SubResource("CircleShape2D_crnqq")

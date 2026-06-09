@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b8bi6ntlp8260"]
+
+[ext_resource type="Script" uid="uid://c5ntdlyy1nenw" path="res://excasy.gd" id="1_re8hc"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="2_v5ftc"]
+[ext_resource type="Texture2D" uid="uid://bdyhbr0bpbx76" path="res://digger/homjagui.png" id="3_aivjp"]
+[ext_resource type="Texture2D" uid="uid://c54m5e443ych5" path="res://digger/dolnot.png" id="4_yyxgp"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="5_eqlwc"]
+
+[node name="excasy" type="Node2D" unique_id=2074616584]
+script = ExtResource("1_re8hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484786281]
+texture = ExtResource("2_v5ftc")
+
+[node name="Juimgone" type="Sprite2D" parent="." unique_id=146590520]
+position = Vector2(99.99994, 55.000023)
+scale = Vector2(1.9467541, 3.1484823)
+texture = ExtResource("3_aivjp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1025762887]
+position = Vector2(-145, 166.25)
+scale = Vector2(2.8125, 4.1666665)
+texture = ExtResource("4_yyxgp")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=479557281]
+position = Vector2(357, -230.25)
+scale = Vector2(4.699187, 2.6263156)
+texture = ExtResource("5_eqlwc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=667375106]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=1936311949]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1139127634]
+offset_left = 154.0
+offset_top = -295.0
+offset_right = 565.25
+offset_bottom = -175.75
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

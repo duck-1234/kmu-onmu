@@ -1,0 +1,4 @@
+Idle sprite resolution: 8x25
+walking sprite resolution: 12x25
+
+you have all the rights to use this

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c0wr3jdujxlcm"]
+
+[ext_resource type="Script" uid="uid://yokiap6ilbm1" path="res://opstory.gd" id="1_7nna1"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="2_qtu8k"]
+[ext_resource type="Texture2D" uid="uid://bfaj5mlg274kx" path="res://iloveimg-resized/juimgone.png" id="3_m7pmp"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="4_ofngu"]
+
+[node name="opstory" type="Node2D" unique_id=2050971173]
+script = ExtResource("1_7nna1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=436519196]
+texture = ExtResource("2_qtu8k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=390774779]
+
+[node name="Juimgone" type="Sprite2D" parent="." unique_id=2083074070]
+position = Vector2(-672, 149)
+texture = ExtResource("3_m7pmp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1299834130]
+position = Vector2(-206.87497, -155)
+scale = Vector2(6.745935, 3.3842103)
+texture = ExtResource("4_ofngu")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=261937725]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=738610738]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1252338984]
+offset_left = -458.0
+offset_top = -240.0
+offset_right = 86.0
+offset_bottom = -130.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1158165602]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

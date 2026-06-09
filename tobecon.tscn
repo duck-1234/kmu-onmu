@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dedojoeepmu15"]
+
+[ext_resource type="Script" uid="uid://ca6nnalmnplwy" path="res://tobecon.gd" id="1_87hwi"]
+[ext_resource type="Texture2D" uid="uid://c8w7sv3cffgd7" path="res://2d겜프 에셋/ChatGPT Image 2026년 4월 16일 오전 12.png" id="2_dwshf"]
+[ext_resource type="Texture2D" uid="uid://bfaj5mlg274kx" path="res://iloveimg-resized/juimgone.png" id="3_o5t6f"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="4_gh2pr"]
+
+[node name="tobecon" type="Node2D" unique_id=1644509069]
+script = ExtResource("1_87hwi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1219805229]
+texture = ExtResource("2_dwshf")
+
+[node name="Juimgone" type="Sprite2D" parent="." unique_id=909222876]
+position = Vector2(-500, 338)
+scale = Vector2(0.4369863, 0.414611)
+texture = ExtResource("3_o5t6f")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=834638583]
+position = Vector2(-283.375, 179)
+scale = Vector2(3.5508127, 1.668421)
+texture = ExtResource("4_gh2pr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=897679621]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=572900520]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=847599550]
+offset_left = -443.0
+offset_top = 140.0
+offset_right = -223.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

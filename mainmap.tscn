@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://eo6vp7ro8g5m"]
+
+[ext_resource type="Texture2D" uid="uid://b8v6ol21q4i16" path="res://iloveimg-resized/고풍스러운 박물관 로비 (1).png" id="1_j51q1"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="2_ohn21"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="2_uq1po"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohn21"]
+size = Vector2(171, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx3qb"]
+size = Vector2(842, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0cvs"]
+size = Vector2(79, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgrk1"]
+size = Vector2(68.5, 43.875)
+
+[node name="mainmap" type="Node2D" unique_id=393094909]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=921298292]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1610177232]
+texture = ExtResource("1_j51q1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=541819373]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1698523214]
+position = Vector2(0, -2)
+polygon = PackedVector2Array(-863, -2, -862, 456, 30, 490, 30, 468, -341, 455, -347, 407, -759, 413, -753, 5, -614, 2, -617, -56, -442, -54, -308, -51, -226, -53, -145, -38, -224, 24, -140, -35, -130, -84, -142, -214, 67, -206, 127, 2, 169, 28, 137, -2, 137, -38, 254, -40, 252, -78, 366, -28, 563.08936, -35.452957, 563, 54, 627, 59, 725, 7, 833, 0, 825, 433, 509, 413, 508, 456, 31, 468, 31, 490, 747, 454, 862, 452, 864, -194, 858, -455, -863, -453)
+
+[node name="go stair" type="Area2D" parent="." unique_id=74549024 groups=["door"]]
+script = ExtResource("2_uq1po")
+target_scene = "res://stair.tscn"
+
+[node name="stairCollisionShape2D" type="CollisionShape2D" parent="go stair" unique_id=1359484708]
+position = Vector2(-32, -139)
+shape = SubResource("RectangleShape2D_ohn21")
+debug_color = Color(0.8784314, 0, 1, 0.93333334)
+
+[node name="go open" type="Area2D" parent="." unique_id=71121840 groups=["door"]]
+script = ExtResource("2_uq1po")
+target_scene = "res://main.tscn"
+
+[node name="openCollisionShape2D" type="CollisionShape2D" parent="go open" unique_id=2078339244]
+position = Vector2(80, 446)
+shape = SubResource("RectangleShape2D_wx3qb")
+
+[node name="map3" type="Area2D" parent="." unique_id=323719480 groups=["door"]]
+script = ExtResource("2_uq1po")
+target_scene = "res://map3.tscn"
+
+[node name="map3CollisionShape2D" type="CollisionShape2D" parent="map3" unique_id=865966856]
+position = Vector2(772, 45)
+shape = SubResource("RectangleShape2D_n0cvs")
+debug_color = Color(0.8926883, 0.00089580956, 0.932364, 0.99215686)
+
+[node name="map4" type="Area2D" parent="." unique_id=733860872 groups=["door"]]
+script = ExtResource("2_uq1po")
+target_scene = "res://map4.tscn"
+
+[node name="map3CollisionShape2D3" type="CollisionShape2D" parent="map4" unique_id=1671877570]
+position = Vector2(-565, -18)
+shape = SubResource("RectangleShape2D_hgrk1")
+debug_color = Color(0.8784314, 0, 1, 0.93333334)
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("2_ohn21")]
+position = Vector2(-4, 321)
+
+[connection signal="body_entered" from="go stair" to="go stair" method="_on_body_entered"]
+[connection signal="body_exited" from="go stair" to="go stair" method="_on_body_exited"]
+[connection signal="body_entered" from="go open" to="go open" method="_on_body_entered"]
+[connection signal="body_exited" from="go open" to="go open" method="_on_body_exited"]
+[connection signal="body_entered" from="map3" to="map3" method="_on_body_entered"]
+[connection signal="body_exited" from="map3" to="map3" method="_on_body_exited"]
+[connection signal="body_entered" from="map4" to="map4" method="_on_body_entered"]
+[connection signal="body_exited" from="map4" to="map4" method="_on_body_exited"]

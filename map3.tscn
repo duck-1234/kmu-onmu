@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cfwyncxlu7048"]
+
+[ext_resource type="Texture2D" uid="uid://cebm623hc337w" path="res://iloveimg-resized/후투티관.png" id="1_57eux"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="2_xlpwo"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="3_qotn6"]
+[ext_resource type="Shader" uid="uid://n7kqdb828l8x" path="res://map1.gdshader" id="4_f5b5g"]
+[ext_resource type="Script" uid="uid://bi2w2wcv1y6nr" path="res://outline.gd" id="4_tygii"]
+[ext_resource type="Texture2D" uid="uid://cb66tixspvo6g" path="res://2d겜프 에셋/후투티관전1.png" id="7_xssoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5b5g"]
+size = Vector2(1856, 58)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qotn6"]
+shader = ExtResource("4_f5b5g")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xssoo"]
+size = Vector2(330.01556, 453)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xssoo"]
+shader = ExtResource("4_f5b5g")
+shader_parameter/outline_size = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f5b5g"]
+load_path = "res://.godot/imported/image-removebg-preview (4).png-6ac2e881a3bb6721628e2d97ce911890.ctex"
+
+[node name="map3" type="Node2D" unique_id=687709028]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1229168966]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2009715974]
+texture = ExtResource("1_57eux")
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("2_xlpwo")]
+z_index = 4
+position = Vector2(627, 277)
+scale = Vector2(1.5, 1.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1109282473 groups=["door"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1731821605]
+polygon = PackedVector2Array(-273, -108, -275, -461, -868, -453, -859, 454, -690, 454, -690, 315)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1741189929]
+polygon = PackedVector2Array(-259, -195, 166, -198, 155, -447, -281, -450)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1191121244]
+polygon = PackedVector2Array(163, -201, 769, 94, 764, 430, 862, 433, 854, -452, 149, -450)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2058125548]
+polygon = PackedVector2Array(-93, 46, -96, 172, 80, 175, 70, 49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1690334921]
+position = Vector2(35, 459)
+shape = SubResource("RectangleShape2D_f5b5g")
+debug_color = Color(1, 0.007843138, 0.078431375, 0.27450982)
+
+[node name="gomain" type="Area2D" parent="." unique_id=1292689208 groups=["door"]]
+script = ExtResource("3_qotn6")
+target_scene = "res://mainmap.tscn"
+
+[node name="m3_to_mainCollisionShape2D" type="CollisionPolygon2D" parent="gomain" unique_id=1070654211]
+position = Vector2(247, 57)
+polygon = PackedVector2Array(169, 332.25, 370, 349.25, 460, 336.25, 492, 62.25, 520, 75.25, 506, 371.25, 456, 369.25, 175, 376.25)
+
+[node name="object" type="Node" parent="." unique_id=508333251]
+
+[node name="object1" type="Area2D" parent="object" unique_id=99929270]
+script = ExtResource("4_tygii")
+target_scene = "res://camsy.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="object/object1" unique_id=631130907]
+z_index = 1
+material = SubResource("ShaderMaterial_qotn6")
+position = Vector2(-615, 214)
+texture = ExtResource("7_xssoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object/object1" unique_id=675159125]
+position = Vector2(-653.17816, 277.8219)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_xssoo")
+
+[node name="Upupa epops" type="Area2D" parent="object" unique_id=1992401990]
+script = ExtResource("4_tygii")
+target_scene = "res://hututisy.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="object/Upupa epops" unique_id=358007127]
+z_index = 1
+material = SubResource("ShaderMaterial_xssoo")
+position = Vector2(-10.874996, 112.00001)
+scale = Vector2(0.81511056, 0.86864406)
+texture = SubResource("CompressedTexture2D_f5b5g")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="object/Upupa epops" unique_id=388249621]
+position = Vector2(-65, 60)
+polygon = PackedVector2Array(-79, -125, -83, 249, 191, 239, 195, 104, 77, 27, 48, -51, 30, -132)
+
+[connection signal="body_entered" from="gomain" to="gomain" method="_on_body_entered"]
+[connection signal="body_exited" from="gomain" to="gomain" method="_on_body_exited"]
+[connection signal="body_entered" from="object/object1" to="object/object1" method="_on_body_entered"]
+[connection signal="body_exited" from="object/object1" to="object/object1" method="_on_body_exited"]
+[connection signal="body_entered" from="object/Upupa epops" to="object/Upupa epops" method="_on_body_entered"]
+[connection signal="body_exited" from="object/Upupa epops" to="object/Upupa epops" method="_on_body_exited"]

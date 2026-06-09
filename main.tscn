@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dv4t8xnd0vdxa"]
+
+[ext_resource type="Texture2D" uid="uid://bicl8phlo0am6" path="res://iloveimg-resized/대학 건물의 픽셀 아트 풍경.png" id="1_4qvrg"]
+[ext_resource type="Script" uid="uid://bjwhkatxfih8t" path="res://opening.gd" id="1_hsrnu"]
+[ext_resource type="Script" uid="uid://chk0w08ilf6e6" path="res://door.gd" id="2_gggm5"]
+[ext_resource type="PackedScene" uid="uid://s0ubrj0nfb1v" path="res://player.tscn" id="3_ulneq"]
+[ext_resource type="Texture2D" uid="uid://c42sos2k5rk5w" path="res://iloveimg-resized/wasd.png" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://bxdioo4htygbx" path="res://iloveimg-resized/hsp.png" id="6_272bh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrnu"]
+size = Vector2(182, 69)
+
+[node name="opening" type="Node2D" unique_id=1359436117]
+script = ExtResource("1_hsrnu")
+
+[node name="Door" type="Area2D" parent="." unique_id=1497236888 groups=["door"]]
+script = ExtResource("2_gggm5")
+target_scene = "res://story1.tscn"
+
+[node name="DoorCollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=14078880]
+position = Vector2(-6, 121.5)
+shape = SubResource("RectangleShape2D_hsrnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1287202723]
+texture = ExtResource("1_4qvrg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1256667164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1782135174]
+polygon = PackedVector2Array(-864, 453, 706, 453, -746, 444, -738, 297, -550, 267, -381, 166, -227, 108, -95, 79, 86, 82, 237, 129, 409, 197, 530, 315, 670.923, 317.57788, 710, 447, 860, 453, 854, -455, -865, -453)
+
+[node name="player" parent="." unique_id=1922171133 instance=ExtResource("3_ulneq")]
+position = Vector2(-356, 318)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=323504653]
+
+[node name="Wasd" type="Sprite2D" parent="." unique_id=1425772486]
+modulate = Color(1, 1, 1, 0.18039216)
+position = Vector2(-477, 403)
+scale = Vector2(0.3006757, 0.30666667)
+texture = ExtResource("5_7mycd")
+
+[node name="Hsp" type="Sprite2D" parent="." unique_id=1222214996]
+modulate = Color(1, 1, 1, 0.32941177)
+position = Vector2(-568, 401)
+scale = Vector2(0.3638298, 0.31761006)
+texture = ExtResource("6_272bh")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

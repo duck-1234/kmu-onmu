@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dhlfx6thxvdwk"]
+
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="1_4yrfe"]
+[ext_resource type="Script" uid="uid://by5r63n10ipud" path="res://giwastory.gd" id="1_xapam"]
+[ext_resource type="Texture2D" uid="uid://cxtehmvc4w23g" path="res://2d겜프 에셋/4.png" id="2_xapam"]
+[ext_resource type="Texture2D" uid="uid://cx7rlp1rpawui" path="res://2d겜프 에셋/3.png" id="3_kedyp"]
+[ext_resource type="Texture2D" uid="uid://ty8w8rso0x7q" path="res://2d겜프 에셋/2.png" id="4_pu4if"]
+[ext_resource type="Texture2D" uid="uid://1s2qres18y3j" path="res://2d겜프 에셋/1.png" id="5_llpxi"]
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="6_nkyw0"]
+
+[node name="giwastory" type="Node2D" unique_id=679217284]
+script = ExtResource("1_xapam")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=453712415]
+texture = ExtResource("1_4yrfe")
+
+[node name="giwa" type="Sprite2D" parent="." unique_id=1351672555]
+position = Vector2(-1, 165.00002)
+rotation = -3.403392
+scale = Vector2(0.6746335, 0.62323475)
+texture = ExtResource("2_xapam")
+
+[node name="giwa2" type="Sprite2D" parent="." unique_id=931975722]
+position = Vector2(-246.62227, 155.93088)
+rotation = 1.5707964
+scale = Vector2(0.7665892, 0.63167626)
+texture = ExtResource("3_kedyp")
+
+[node name="giwa3" type="Sprite2D" parent="." unique_id=1805562151]
+position = Vector2(2, -104.93085)
+rotation = 2.0943952
+scale = Vector2(0.69217736, 0.6493755)
+texture = ExtResource("4_pu4if")
+
+[node name="giwa4" type="Sprite2D" parent="." unique_id=893012939]
+position = Vector2(-249.00002, -107)
+rotation = -1.0471976
+scale = Vector2(0.7884234, 0.65863293)
+texture = ExtResource("5_llpxi")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=165424105]
+position = Vector2(245, -252)
+scale = Vector2(2.5813007, 1.668421)
+texture = ExtResource("6_nkyw0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2112676241]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=691017015]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=229079633]
+offset_left = 144.0
+offset_top = -298.0
+offset_right = 364.0
+offset_bottom = -234.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

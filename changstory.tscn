@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ct832bmyi0dck"]
+
+[ext_resource type="Texture2D" uid="uid://c1lnm44186m5n" path="res://iloveimg-resized/malpungsun.png" id="1_5qygu"]
+[ext_resource type="Script" uid="uid://dj8eamaq8cmia" path="res://changstory.gd" id="1_tkcoj"]
+[ext_resource type="Texture2D" uid="uid://0255s1extdgf" path="res://iloveimg-resized/blackbg.png" id="2_r1253"]
+[ext_resource type="Texture2D" uid="uid://b3n3uthhp52qp" path="res://2d겜프 에셋/chang.png" id="3_1hhvo"]
+[ext_resource type="Texture2D" uid="uid://bho7gjnni75ie" path="res://2d겜프 에셋/갑옷과 투구and 기사.png" id="4_epp0q"]
+
+[node name="changstory" type="Node2D" unique_id=146755614]
+script = ExtResource("1_tkcoj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=813482973]
+texture = ExtResource("2_r1253")
+
+[node name="chang" type="Sprite2D" parent="." unique_id=1043152461]
+position = Vector2(-323, 5)
+scale = Vector2(2.1201327, 1.6321983)
+texture = ExtResource("3_1hhvo")
+
+[node name="gapot" type="Sprite2D" parent="." unique_id=1209253126]
+position = Vector2(-55.999985, 133)
+scale = Vector2(1.3180327, 1.4315404)
+texture = ExtResource("4_epp0q")
+
+[node name="Malpungsun" type="Sprite2D" parent="." unique_id=1734074400]
+position = Vector2(331.125, -210.875)
+scale = Vector2(4.8272357, 3.0131578)
+texture = ExtResource("1_5qygu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1894141977]
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=1730294719]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=318779442]
+offset_left = 133.0
+offset_top = -282.0
+offset_right = 541.0
+offset_bottom = -153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
